@@ -3,10 +3,17 @@ package Geo::PostcodeToProvince;
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
+use utf8;
+
+use Carp qw(croak);
+require Exporter;
+
+our @ISA = qw(Exporter);
+our @EXPORT_OK = qw(postcode_to_province);
 
 =head1 NAME
 
-Geo::PostcodeToProvince - The great new Geo::PostcodeToProvince!
+Geo::PostcodeToProvince - Get a province name for a given postcode
 
 =head1 VERSION
 
@@ -19,34 +26,37 @@ our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+Given a country name and a postcode, get the name of the province.
 
-Perhaps a little code snippet.
+    use Geo::PostcodeToProvince qw(postcode_to_province);
 
-    use Geo::PostcodeToProvince;
-
-    my $foo = Geo::PostcodeToProvince->new();
-    ...
-
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+    my $province = postcode_to_province("it", "rm");
+    # $province is now "Rome"
 
 =head1 SUBROUTINES/METHODS
 
-=head2 function1
+=head2 postcode_to_province
+
+Takes two string arguments, the first one being a two-letter ISO 3166-1 country
+code, and the second one being a postcode in that country.
+
+It returns the name of the province of that postcode if it can find it, or
+undef if not.
+
+If the wrong number of arguments is passed, this subroutine will die.
+
+    my $province = postcode_to_province("it", "rm");
 
 =cut
 
-sub function1 {
-}
+sub postcode_to_province {
+    croak "Expected two arguments" if (@_ != 2);
+    my ($country, $postcode) = @_;
 
-=head2 function2
-
-=cut
-
-sub function2 {
+    if ($country eq "it" && $postcode eq "rm") {
+        return "Rome";
+    }
+    return;
 }
 
 =head1 AUTHOR
