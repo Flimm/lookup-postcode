@@ -858,6 +858,15 @@ David D Lowe, C<< <daviddlowe.flimm at gmail.com> >>
 
 =head1 BUGS
 
+Please report any bugs or feature requests to C<bug-geo-postcodetoprovince at rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Geo-PostcodeToProvince>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
+
+
+
+
+
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
@@ -867,12 +876,37 @@ You can find documentation for this module with the perldoc command.
 
 You can also look for information at:
 
+=over 4
+
+=item * RT: CPAN's request tracker (report bugs here)
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Geo-PostcodeToProvince>
+
+=item * AnnoCPAN: Annotated CPAN documentation
+
+L<http://annocpan.org/dist/Geo-PostcodeToProvince>
+
+=item * CPAN Ratings
+
+L<http://cpanratings.perl.org/d/Geo-PostcodeToProvince>
+
+=item * Search CPAN
+
+L<http://search.cpan.org/dist/Geo-PostcodeToProvince/>
+
+=back
+
+
+
+
 =head1 ACKNOWLEDGEMENTS
 
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2016 David D Lowe.
+Copyright 2016 David D Lowe and contributors.
+
+This work is licensed under CC BY-SA 3.0.
 
 =cut
 
