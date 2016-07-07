@@ -10,6 +10,8 @@ binmode Test::More->builder->output, ":encoding(UTF-8)";
 binmode Test::More->builder->failure_output, ":encoding(UTF-8)";
 binmode Test::More->builder->todo_output, ":encoding(UTF-8)";
 
+Geo::PostcodeToProvince::_test_check_lookup_table();
+
 is_deeply(
     postcode_to_province("it", "00118"),
     { region_code => 'IT-62', province_code => 'IT-RM' },

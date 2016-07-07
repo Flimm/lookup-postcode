@@ -864,26 +864,27 @@ sub _build_data() {
             }
         }
 
-        # Do some error checking, we should probably move this out to a test:
-        my $error_string;
+    }
+
+}
+
+sub _test_check_lookup_table {
+    # This test is written here, instead of in a .t file, as only it has access
+    # to the private variable %lookup_table
+    require Test::More;
+    for my $country (sort keys %lookup_table) {
+        my $rh_lookup = $lookup_table{$country};
         for my $key (sort keys %$rh_lookup) {
             if (@{ $rh_lookup->{$key} } >= 2) {
                 if (! _all(sub { $_->{function} }, @{ $rh_lookup->{$key} })) {
-                    print "$key\n";
                     my $provinces_string = join(", ",
                         map { $_->{province} } @{ $rh_lookup->{$key} }
                     );
-                    $error_string = join(
-                        "\n",
-                        $error_string // (),
-                        "Lookup key '$key' has multiple provinces $provinces_string but missing functions to distinguish between them. ",
-                    );
+                    Test::More::fail("Lookup key '$key' in country $country has multiple provinces $provinces_string but missing functions to distinguish between them. ");
                 }
             }
         }
-        die $error_string if $error_string;
     }
-
 }
 
 sub _all {
