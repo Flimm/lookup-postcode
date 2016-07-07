@@ -49,7 +49,7 @@ Given a country name and a postcode, get the name of the province.
 
 =item Italy
 
-This includes the Vatican.
+This includes the Vatican and the Republic of San Marino.
 
 =back
 
@@ -101,12 +101,15 @@ sub postcode_to_province {
         my @results;
         for my $rh_geo_entry (@{ $lookup_table{$country}{$lookup_key} }) {
             local $_ = $postcode;
-            if ($rh_geo_entry->{function}()) {
+            if (! $rh_geo_entry->{function} || $rh_geo_entry->{function}()) {
                 push @results, $rh_geo_entry;
             }
         }
-        die "Found more than one province for postcode '$postcode'" if (@results > 1);
-        if (@results == 1) {
+        if (@results > 1) {
+            my $provinces = join(", ", map { $_->{province} } @results);
+            die "Found more than one province for postcode '$postcode': $provinces ";
+        }
+        elsif (@results == 1) {
             return {
                 region_code => $results[0]{region_code},
                 province_code => $results[0]{province_code},
@@ -234,17 +237,18 @@ sub _build_data() {
             'province_code' => 'IT-BT'
         },
         {
-            'region'        => 'Trentino-Alto Adige/S�dtirol',
+            'region'        => 'Trentino-Alto Adige/Südtirol',
             'lookup_keys'   => [ '390', '391' ],
             'province'      => 'Bolzano/Bozen',
             'province_code' => 'IT-BZ'
         },
         {
             'region'        => 'Sardinia',
-            'function'      => sub { ($_ >= 9121 && $_ <= 9134) || ($_ >= 9010 && $_ <= 9049) || $_ == 8030 || $_ == 8033 || $_ == 8035 || $_ == 8043 },
+            'function'      => sub { ($_ >= 9121 && $_ <= 9134) || ($_ >= 9018 && $_ <= 9019) || ($_ >= 9042 && $_ <= 9049) || $_ == 8030 || $_ == 8033 || $_ == 8035 || $_ == 8043 },
             'lookup_keys'   => [ '080', '090', '091' ],
             'province'      => 'Cagliari',
-            'province_code' => 'IT-CA'
+            'province_code' => 'IT-CA',
+            'comment'       => 'Remove 09010 to 09017 because it conflicts with Carbonia-Iglesias, and 09020 to 09041 because it conflicts with Medio Campidano',
         },
         {
             'region'        => 'Molise',
@@ -501,24 +505,27 @@ sub _build_data() {
         },
         {
             'region'        => 'Sardinia',
-            'function'      => sub { $_ == 8100 || ($_ >= 8010 && $_ <= 8039) },
+            'function'      => sub { $_ == 8100 || $_ == 8012 || ($_ >= 8014 && $_ <= 8018) || ($_ >= 8021 && $_ <= 8029) || ($_ >= 8031 && $_ <= 8032) || ($_ >= 8036 && $_ <= 8039) },
             'lookup_keys'   => [ '080', '081' ],
             'province'      => 'Nuoro',
-            'province_code' => 'IT-NU'
+            'province_code' => 'IT-NU',
+            'comment'       => 'Removed 08010, 08013, 08019, 08020 and 08034 as these conflict with Oristano, and 08030, 08033 and 08035 as these conflict with Cagliari',
         },
         {
             'region'        => 'Sardinia',
-            'function'      => sub { $_ >= 8040 && $_ <= 8049 },
+            'function'      => sub { $_ >= 8040 && $_ <= 8049 && $_ != 8043 },
             'lookup_keys'   => [ '080' ],
             'province'      => 'Ogliastra',
-            'province_code' => 'IT-OG'
+            'province_code' => 'IT-OG',
+            'comment'       => 'Removed 08043 because it conflicts with Cagliari',
         },
         {
             'region'        => 'Sardinia',
-            'function'      => sub { $_ == 9170 || ($_ >= 9070 && $_ <= 9099) || $_ == 8010 || $_ == 8013 || $_ == 8019 || $_ == 8030 || $_ == 8034 },
+            'function'      => sub { $_ == 9170 || ($_ >= 9070 && $_ <= 9099) || $_ == 8010 || $_ == 8013 || $_ == 8019 || $_ == 8034 },
             'lookup_keys'   => [ '080', '090', '091' ],
             'province'      => 'Oristano',
-            'province_code' => 'IT-OR'
+            'province_code' => 'IT-OR',
+            'comment'       => 'Remove 08030 because this conflicts with Cagliari',
         },
         {
             'region'        => 'Sardinia',
@@ -638,7 +645,7 @@ sub _build_data() {
         },
         {
             'region'        => 'Lazio',
-            'function'      => sub { ($_ >= 118 && $_ <= 199) || ($_ >= 10 && $_ <= 69) },
+            'function'      => sub { ($_ >= 118 && $_ <= 119) || ($_ >= 121 && $_ <= 199) || ($_ >= 10 && $_ <= 69) },
             'lookup_keys'   => [ '000', '001' ],
             'province'      => 'Rome',
             'province_code' => 'IT-RM'
@@ -702,7 +709,7 @@ sub _build_data() {
         },
         {
             'region'        => 'Sardinia',
-            'function'      => sub { $_ == 7100 || ($_ >= 7010 && $_ <= 7019) || ($_ >= 7030 || $_ <= 7049) },
+            'function'      => sub { $_ == 7100 || ($_ >= 7010 && $_ <= 7019) || ($_ >= 7030 && $_ <= 7049) },
             'lookup_keys'   => [ '070', '071' ],
             'province'      => 'Sassari',
             'province_code' => 'IT-SS'
@@ -726,7 +733,7 @@ sub _build_data() {
             'province_code' => 'IT-TE'
         },
         {
-            'region'        => 'Trentino-Alto Adige/S�dtirol',
+            'region'        => 'Trentino-Alto Adige/Südtirol',
             'lookup_keys'   => [ '380', '381' ],
             'province'      => 'Trento',
             'province_code' => 'IT-TN'
@@ -829,18 +836,19 @@ sub _build_data() {
             'Friuli-Venezia Giulia' => 'IT-36',
             'Lazio' => 'IT-62',
             'Liguria' => 'IT-42',
-            'Lombardia' => 'IT-25',
+            'Lombardy' => 'IT-25',
             'Marche' => 'IT-57',
             'Molise' => 'IT-67',
-            'Piemonte' => 'IT-21',
-            'Puglia' => 'IT-75',
-            'Sardegna' => 'IT-88',
-            'Sicilia' => 'IT-82',
-            'Toscana' => 'IT-52',
-            'Trentino-Alto Adige, Trentino-Südtirol (de)' => 'IT-32',
+            'Piedmont' => 'IT-21',
+            'Apulia' => 'IT-75',
+            'Sardinia' => 'IT-88',
+            'Sicily' => 'IT-82',
+            'Tuscany' => 'IT-52',
+            'Trentino-Alto Adige/Südtirol' => 'IT-32',
             'Umbria' => 'IT-55',
-            'Valle d\'Aosta, Vallée d\'Aoste (fr)' => 'IT-23',
+            'Aosta Valley' => 'IT-23',
             'Veneto' => 'IT-34',
+            '-' => '-', # For the Vatican and San Marino
         },
     );
 
