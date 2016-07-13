@@ -23,11 +23,13 @@ Geo::PostcodeToProvince - Get a province name for a given postcode
 
 =head1 VERSION
 
-Version 0.01
+Version 0.01_01
+
+This is a developer release, as the API interface may change.
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.01_01';
 
 
 =head1 SYNOPSIS
