@@ -1,6 +1,6 @@
 package Geo::LookupPostcode;
 
-use 5.006;
+use 5.012;
 use strict;
 use warnings FATAL => 'all';
 use utf8;
