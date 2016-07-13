@@ -1,4 +1,4 @@
-# `Geo::PostcodeToProvince`
+# `Geo::LookupPostcode`
 
 [![Build Status](https://travis-ci.org/Flimm/postcode-to-province.svg?branch=master)](https://travis-ci.org/Flimm/postcode-to-province)
 

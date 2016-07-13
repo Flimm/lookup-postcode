@@ -1,4 +1,4 @@
-package Geo::PostcodeToProvince;
+package Geo::LookupPostcode;
 
 use 5.006;
 use strict;
@@ -19,7 +19,7 @@ my %lookup_functions;
 
 =head1 NAME
 
-Geo::PostcodeToProvince - Get a province name for a given postcode
+Geo::LookupPostcode - Get a province name for a given postcode
 
 =head1 VERSION
 
@@ -36,7 +36,7 @@ our $VERSION = '0.01_01';
 
 Given a country name and a postcode, get the name of the province.
 
-    use Geo::PostcodeToProvince qw(postcode_to_province);
+    use Geo::LookupPostcode qw(postcode_to_province);
 
     my $province = postcode_to_province("it", "00118");
     # $province is now:
@@ -911,7 +911,7 @@ David D Lowe, C<< <daviddlowe.flimm at gmail.com> >>
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-geo-postcodetoprovince at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Geo-PostcodeToProvince>.  I will be notified, and then you'll
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Geo-LookupPostcode>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
 
@@ -923,7 +923,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Geo::PostcodeToProvince
+    perldoc Geo::LookupPostcode
 
 
 You can also look for information at:
@@ -932,19 +932,19 @@ You can also look for information at:
 
 =item * RT: CPAN's request tracker (report bugs here)
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Geo-PostcodeToProvince>
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Geo-LookupPostcode>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
-L<http://annocpan.org/dist/Geo-PostcodeToProvince>
+L<http://annocpan.org/dist/Geo-LookupPostcode>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/Geo-PostcodeToProvince>
+L<http://cpanratings.perl.org/d/Geo-LookupPostcode>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/Geo-PostcodeToProvince/>
+L<http://search.cpan.org/dist/Geo-LookupPostcode/>
 
 =back
 
@@ -973,4 +973,4 @@ This work is licensed under CC BY-SA 3.0.
 
 =cut
 
-1; # End of Geo::PostcodeToProvince
+1; # End of Geo::LookupPostcode

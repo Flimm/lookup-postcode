@@ -4,10 +4,10 @@ use warnings FATAL => 'all';
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME             => 'Geo::PostcodeToProvince',
+    NAME             => 'Geo::LookupPostcode',
     AUTHOR           => q{David D Lowe <daviddlowe.flimm@gmail.com>},
-    VERSION_FROM     => 'lib/Geo/PostcodeToProvince.pm',
-    ABSTRACT_FROM    => 'lib/Geo/PostcodeToProvince.pm',
+    VERSION_FROM     => 'lib/Geo/LookupPostcode.pm',
+    ABSTRACT_FROM    => 'lib/Geo/LookupPostcode.pm',
     LICENSE          => 'unrestricted',
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.006,
@@ -22,5 +22,5 @@ WriteMakefile(
         #'Foo::Bar::Module' => 5.0401,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean => { FILES => 'Geo-PostcodeToProvince-*' },
+    clean => { FILES => 'Geo-LookupPostcode-*' },
 );

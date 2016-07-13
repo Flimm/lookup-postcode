@@ -1,7 +1,7 @@
-Geo-PostcodeToProvince
+Geo-LookupPostcode
 
 This module allows you to convert a postcode into a province string. Only
-certain countries are supported. The module name is Geo::PostcodeToProvince
+certain countries are supported. The module name is Geo::LookupPostcode
 
 INSTALLATION
 
@@ -17,21 +17,21 @@ SUPPORT AND DOCUMENTATION
 After installing, you can find documentation for this module with the
 perldoc command.
 
-    perldoc Geo::PostcodeToProvince
+    perldoc Geo::LookupPostcode
 
 You can also look for information at:
 
     RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Geo-PostcodeToProvince
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Geo-LookupPostcode
 
     AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/Geo-PostcodeToProvince
+        http://annocpan.org/dist/Geo-LookupPostcode
 
     CPAN Ratings
-        http://cpanratings.perl.org/d/Geo-PostcodeToProvince
+        http://cpanratings.perl.org/d/Geo-LookupPostcode
 
     Search CPAN
-        http://search.cpan.org/dist/Geo-PostcodeToProvince/
+        http://search.cpan.org/dist/Geo-LookupPostcode/
 
 
 
@@ -45,7 +45,7 @@ If you don't want to install the module, but just run it quickly, run:
 
 Now you can do:
 
-        perl -Ilib -Mblib -e 'use Geo::PostcodeToProvince qw(postcode_to_province);'
+        perl -Ilib -Mblib -e 'use Geo::LookupPostcode qw(postcode_to_province);'
 
 LICENSE AND COPYRIGHT
 

@@ -4,13 +4,13 @@ use warnings FATAL => 'all';
 use utf8;
 
 use Test::More;
-use Geo::PostcodeToProvince qw(postcode_to_province);
+use Geo::LookupPostcode qw(postcode_to_province);
 
 binmode Test::More->builder->output, ":encoding(UTF-8)";
 binmode Test::More->builder->failure_output, ":encoding(UTF-8)";
 binmode Test::More->builder->todo_output, ":encoding(UTF-8)";
 
-Geo::PostcodeToProvince::_test_check_lookup_table();
+Geo::LookupPostcode::_test_check_lookup_table();
 
 is_deeply(
     postcode_to_province("it", "00118"),

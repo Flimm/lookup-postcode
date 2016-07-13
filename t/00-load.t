@@ -7,7 +7,7 @@ use Test::More;
 plan tests => 1;
 
 BEGIN {
-    use_ok( 'Geo::PostcodeToProvince' ) || print "Bail out!\n";
+    use_ok( 'Geo::LookupPostcode' ) || print "Bail out!\n";
 }
 
-diag( "Testing Geo::PostcodeToProvince $Geo::PostcodeToProvince::VERSION, Perl $], $^X" );
+diag( "Testing Geo::LookupPostcode $Geo::LookupPostcode::VERSION, Perl $], $^X" );

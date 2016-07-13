@@ -5,3 +5,4 @@ MANIFEST.SKIP
 .git
 xt
 .travis.yml
+Geo-LookupPostcode-*
