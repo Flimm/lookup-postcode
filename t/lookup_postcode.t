@@ -10,7 +10,6 @@ binmode Test::More->builder->output, ":encoding(UTF-8)";
 binmode Test::More->builder->failure_output, ":encoding(UTF-8)";
 binmode Test::More->builder->todo_output, ":encoding(UTF-8)";
 
-Geo::LookupPostcode::_test_check_lookup_table();
 
 is_deeply(
     lookup_postcode("it", "00118"),

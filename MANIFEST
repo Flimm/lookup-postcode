@@ -1,5 +1,6 @@
 Changes
 lib/Geo/LookupPostcode.pm
+lib/Geo/LookupPostcode/IT.pm
 Makefile.PL
 MANIFEST			This list of files
 README
@@ -10,3 +11,4 @@ t/manifest.t
 t/pod-coverage.t
 t/pod.t
 t/lookup_postcode.t
+t/it.t
