@@ -930,9 +930,9 @@ You can also look for information at:
 
 =over 4
 
-=item * RT: CPAN's request tracker (report bugs here)
+=item * GitHub issue tracker (report bugs here)
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Geo-LookupPostcode>
+L<https://github.com/Flimm/lookup-postcode/issues>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 

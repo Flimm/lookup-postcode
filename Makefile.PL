@@ -23,4 +23,17 @@ WriteMakefile(
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Geo-LookupPostcode-*' },
+    META_MERGE => {
+        'meta-spec' => { version => 2 },
+        resources => {
+            repository => {
+                type => 'git',
+                url => 'https://github.com/Flimm/lookup-postcode.git',
+                web => 'https://github.com/Flimm/lookup-postcode',
+            },
+            bugtracker => {
+                web => 'https://github.com/Flimm/lookup-postcode/issues',
+            },
+        },
+    },
 );
