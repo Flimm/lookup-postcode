@@ -45,7 +45,7 @@ If you don't want to install the module, but just run it quickly, run:
 
 Now you can do:
 
-        perl -Ilib -Mblib -e 'use Geo::LookupPostcode qw(postcode_to_province);'
+        perl -Ilib -Mblib -e 'use Geo::LookupPostcode qw(lookup_postcode);'
 
 LICENSE AND COPYRIGHT
 

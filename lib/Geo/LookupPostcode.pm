@@ -9,7 +9,7 @@ use Carp qw(croak);
 require Exporter;
 
 our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(postcode_to_province);
+our @EXPORT_OK = qw(lookup_postcode);
 
 # These are initialised further down
 my %lookup_table;
@@ -36,9 +36,9 @@ our $VERSION = '0.01_01';
 
 Given a country name and a postcode, get the name of the province.
 
-    use Geo::LookupPostcode qw(postcode_to_province);
+    use Geo::LookupPostcode qw(lookup_postcode);
 
-    my $province = postcode_to_province("it", "00118");
+    my $province = lookup_postcode("it", "00118");
     # $province is now:
     # {
     #   region_code => 'IT-62',
@@ -57,7 +57,7 @@ This includes the Vatican and the Republic of San Marino.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 postcode_to_province
+=head2 lookup_postcode
 
 Takes two character string arguments, the first one being a two-letter ISO
 3166-1 country code, and the second one being a postcode in that country.
@@ -76,11 +76,11 @@ Note that the names may be anglicised (eg: "Vatican City", not "Città del Vatic
 This subroutine will die if the wrong number of arguments is passed or if an
 unsupported country is passed.
 
-    my $rh_province = postcode_to_province("it", "00118");
+    my $rh_province = lookup_postcode("it", "00118");
 
 =cut
 
-sub postcode_to_province {
+sub lookup_postcode {
     croak "Expected two arguments" if (@_ != 2);
     my ($country, $postcode) = @_;
 
