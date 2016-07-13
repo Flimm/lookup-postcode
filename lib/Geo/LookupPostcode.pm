@@ -24,13 +24,13 @@ Geo::LookupPostcode - Get province data for a given postcode
 
 =head1 VERSION
 
-Version 0.01_01
+Version 0.01_02
 
 This is a developer release, as the API interface may change.
 
 =cut
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 =head1 SYNOPSIS
@@ -66,6 +66,10 @@ L<Geo::LookupPostcode::IT>
 =item Spain
 
 L<Geo::LookupPostcode::ES>
+
+=item Finland
+
+L<Geo::LookupPostcode::FI>
 
 =back
 

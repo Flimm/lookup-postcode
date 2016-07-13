@@ -54,6 +54,8 @@ sub lookup_es_postcode {
     return;
 }
 
+# Data from https://en.wikipedia.org/wiki/List_of_postal_codes_in_Spain
+
 
 BEGIN { %geo_provinces = (
     # $postcode => $name,
