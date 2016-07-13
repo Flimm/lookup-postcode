@@ -946,7 +946,17 @@ L<http://search.cpan.org/dist/Geo-PostcodeToProvince/>
 
 =back
 
+=head1 SEE ALSO
 
+
+L<Geo::Postcode>, L<Geo::UK::Postcode> and L<Address::PostCode::UK> provides UK
+postcode validation and location.
+
+L<Geo::PostalCode> provides USA postal code functions.
+
+L<Geo::Postcodes> provides an abstract interface for looking up postcodes. The
+only two implementations that I am aware of are L<Geo::Postcodes::NO> and
+L<Geo::Postcodes::DK>, for Norway and Denmark.
 
 
 =head1 ACKNOWLEDGEMENTS
