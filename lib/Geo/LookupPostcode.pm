@@ -63,6 +63,10 @@ This includes the Vatican and the Republic of San Marino.
 
 L<Geo::LookupPostcode::IT>
 
+=item Spain
+
+L<Geo::LookupPostcode::ES>
+
 =back
 
 =head1 SUBROUTINES/METHODS

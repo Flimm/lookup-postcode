@@ -7,7 +7,9 @@ use utf8;
 
 use Carp qw(croak);
 require Exporter;
-my @EXPORT_OK = qw(lookup_it_postcode);
+
+our @ISA = qw(Exporter);
+our @EXPORT_OK = qw(lookup_it_postcode);
 
 my @geo_provinces;
 my %lookup_table;
