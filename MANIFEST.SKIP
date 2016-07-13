@@ -4,3 +4,4 @@
 MANIFEST.SKIP
 .git
 xt
+.travis.yml
