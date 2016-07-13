@@ -961,6 +961,7 @@ L<Geo::Postcodes::DK>, for Norway and Denmark.
 
 =head1 ACKNOWLEDGEMENTS
 
+Most of the data was sourced from Wikipedia.
 
 =head1 LICENSE AND COPYRIGHT
 
